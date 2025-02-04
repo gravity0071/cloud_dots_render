@@ -1,0 +1,17 @@
+/* GIS Viewer Styles */
+.gis-viewer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 10px;
+}
+
+.map-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background: #fff;
+}

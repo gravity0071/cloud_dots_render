@@ -158,7 +158,7 @@ function Index() {
 
     return (
         <div className="container">
-            <aside>
+            <aside className="sidebar">
                 <h3>Upload Files</h3>
                 <input type="file" multiple accept=".json,.geojson,.pcd" onChange={handleFileUpload} />
                 <ul>
@@ -169,8 +169,8 @@ function Index() {
                                 <ul>
                                     <li>Number of Points: {file.numPoints}</li>
                                     <li>Bounding Box:<br/>
-                                        X[{file.boundingBox.minX}, {file.boundingBox.maxX}]<br/><br/>
-                                        Y[{file.boundingBox.minY}, {file.boundingBox.maxY}]<br/><br/>
+                                        X[{file.boundingBox.minX}, {file.boundingBox.maxX}]<br/>
+                                        Y[{file.boundingBox.minY}, {file.boundingBox.maxY}]<br/>
                                         Z[{file.boundingBox.minZ}, {file.boundingBox.maxZ}]
                                     </li>
                                 </ul>
@@ -179,14 +179,15 @@ function Index() {
                     ))}
                 </ul>
             </aside>
-            <main>
+            <main className="viewer-container">
                 <div className="viewer-tabs">
-                    {gisFile && <GISViewer file={gisFile} />}
-                    {pointCloudFile && <PointCloudViewer file={pointCloudFile} />}
+                    {gisFile && <div className="viewer"><GISViewer file={gisFile} /></div>}
+                    {pointCloudFile && <div className="viewer"><PointCloudViewer file={pointCloudFile} /></div>}
                 </div>
             </main>
         </div>
     );
+
 }
 
 export default Index;
