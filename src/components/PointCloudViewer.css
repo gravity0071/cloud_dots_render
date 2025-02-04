@@ -1,0 +1,10 @@
+.pointcloud-viewer {
+    height: 100%;
+    width: 100%;
+    background-color: #745e5e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid #ddd;
+    border-radius: 5px;
+}
