@@ -58,13 +58,13 @@ function GISViewer({ file }) {
                                 );
                             case "LineString":
                                 return (
-                                    <Polyline key={index} positions={geometry.coordinates.map(coord => [coord[1], coord[0]])} color="blue">
+                                    <Polyline key={index} positions={geometry.coordinates.map(coord => [coord[1], coord[0]])}>
                                         <Popup>{JSON.stringify(properties, null, 2)}</Popup>
                                     </Polyline>
                                 );
                             case "Polygon":
                                 return (
-                                    <Polygon key={index} positions={geometry.coordinates[0].map(coord => [coord[1], coord[0]])} color="green">
+                                    <Polygon key={index} positions={geometry.coordinates[0].map(coord => [coord[1], coord[0]])}>
                                         <Popup>{JSON.stringify(properties, null, 2)}</Popup>
                                     </Polygon>
                                 );
