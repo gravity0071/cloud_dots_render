@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { PCDLoader } from 'three/examples/jsm/loaders/PCDLoader';
 import './PointCloudViewer.css';
 
-function PointCloudViewer({ file }) {
+function PointCloudViewer({ file, hasZAxis }) {
     const viewerRef = useRef(null);
     const sceneRef = useRef(new THREE.Scene());
     const rendererRef = useRef(null);
@@ -15,7 +15,7 @@ function PointCloudViewer({ file }) {
         if (!viewerRef.current) return;
 
         const camera = new THREE.PerspectiveCamera(75, viewerRef.current.clientWidth / viewerRef.current.clientHeight, 0.1, 1000);
-        camera.position.set(0, 0, 2);
+        camera.position.set(1, 1, 1);
         cameraRef.current = camera;
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -61,7 +61,8 @@ function PointCloudViewer({ file }) {
         const loader = new PCDLoader();
         loader.load(fileUrl, (points) => {
             optimizePointCloud(points);
-            colorByAltitude(points);
+            if(hasZAxis)
+                colorByAltitude(points);
             sceneRef.current.add(points);
         });
     };

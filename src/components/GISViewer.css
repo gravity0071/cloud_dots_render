@@ -12,8 +12,8 @@
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    border: 1px solid #ddd;
-    background: #fff;
+    border: 0px solid #ddd;
+    background: black;
 }
 
 /* Leaflet Overrides */
